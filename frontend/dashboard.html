@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartQueue | Business Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>SmartQueue</h1>
+            <p>Business Dashboard</p>
+        </div>
+        <button id="logoutButton" class="logout">Logout</button>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <div>
+                <h2 id="businessName">Loading business...</h2>
+                <p>Manage your customers and queue from one place.</p>
+            </div>
+            <span id="businessEmail"></span>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <p>Waiting</p>
+                <h2 id="waitingCount">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Currently Serving</p>
+                <h2 id="servingToken">—</h2>
+            </div>
+            <div class="stat-card">
+                <p>Total Customers</p>
+                <h2 id="totalCount">0</h2>
+            </div>
+        </section>
+
+        <section class="actions">
+            <button id="callNextButton">Call Next</button>
+            <button id="completeButton" class="secondary">Complete Current</button>
+            <button id="skipButton" class="danger">Skip Current</button>
+        </section>
+
+        <section class="content-grid">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2>Customer Queue</h2>
+                    <button id="refreshButton" class="small-button">Refresh</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Token</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="queueBody">
+                            <tr><td colspan="3">Loading queue...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p id="queueMessage" class="message"></p>
+            </div>
+
+            <div class="panel qr-panel">
+                <h2>Your Business QR Code</h2>
+                <p>Customers can scan this QR code to open your queue page.</p>
+                <div id="qrcode"></div>
+                <button id="downloadQRButton" class="secondary">Download QR Code</button>
+                <p id="qrMessage" class="message"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>SmartQueue — Digital Queue Management System</footer>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

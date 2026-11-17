@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartQueue | Queue Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+    <header>
+        <h1>SmartQueue</h1>
+        <p>Smart queues. Less waiting.</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to SmartQueue</h2>
+            <p>Manage your business queue or join a queue with a QR code.</p>
+        </section>
+
+        <div class="container">
+            <section class="panel">
+                <h2>Business Login</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email address" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p id="loginMessage" class="message"></p>
+            </section>
+
+            <section class="panel">
+                <h2>Register Your Business</h2>
+                <form id="registerForm">
+                    <input type="text" id="businessName" placeholder="Business name" required>
+                    <input type="text" id="ownerName" placeholder="Owner name" required>
+                    <input type="email" id="registerEmail" placeholder="Email address" required>
+                    <input type="password" id="registerPassword" placeholder="Create password" required>
+                    <button type="submit">Register Business</button>
+                </form>
+                <p id="registerMessage" class="message"></p>
+            </section>
+        </div>
+
+        <section class="panel scanner">
+            <h2>Join a Queue</h2>
+            <p>Scan a business QR code to open its customer queue.</p>
+            <button id="scanButton" type="button">Scan QR Code</button>
+            <div id="reader"></div>
+            <p id="scanMessage" class="message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>SmartQueue — Digital Queue Management System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

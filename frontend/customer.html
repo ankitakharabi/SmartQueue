@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartQueue | Join Queue</title>
+    <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+    <header>
+        <h1>SmartQueue</h1>
+        <p>Digital Queue Management</p>
+    </header>
+
+    <main>
+        <section class="business-card">
+            <p class="eyebrow">WELCOME TO</p>
+            <h2 id="businessName">Loading business...</h2>
+            <p id="businessDescription">Join the queue without waiting in line.</p>
+        </section>
+
+        <section class="panel" id="joinPanel">
+            <h2>Join the Queue</h2>
+            <p>Enter your name to receive your queue token.</p>
+
+            <form id="joinForm">
+                <label for="customerName">Your Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your name"
+                    maxlength="100"
+                    required
+                >
+                <button type="submit" id="joinButton">Join Queue</button>
+            </form>
+
+            <p id="joinMessage" class="message"></p>
+        </section>
+
+        <section class="panel ticket-panel" id="ticketPanel" hidden>
+            <p class="eyebrow">YOUR QUEUE TICKET</p>
+            <h2 id="ticketBusiness">Business</h2>
+
+            <div class="ticket-number">
+                <p>Your Token</p>
+                <h1 id="ticketToken">A001</h1>
+            </div>
+
+            <div class="ticket-details">
+                <div>
+                    <span>Customer</span>
+                    <strong id="ticketName">—</strong>
+                </div>
+                <div>
+                    <span>People Ahead</span>
+                    <strong id="peopleAhead">0</strong>
+                </div>
+                <div>
+                    <span>Currently Serving</span>
+                    <strong id="currentlyServing">—</strong>
+                </div>
+                <div>
+                    <span>Status</span>
+                    <strong id="ticketStatus">Waiting</strong>
+                </div>
+            </div>
+
+            <p id="ticketMessage" class="message">
+                Your ticket will update automatically.
+            </p>
+        </section>
+
+        <p class="back-link">
+            <a href="index.html">Back to SmartQueue</a>
+        </p>
+    </main>
+
+    <footer>SmartQueue — Digital Queue Management System</footer>
+
+    <script src="customer.js"></script>
+</body>
+</html>

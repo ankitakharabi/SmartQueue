@@ -2,10 +2,15 @@
 const { spawn } = require("child_process");
 const path = require("path");
 
+const executableName =
+    process.platform === "win32"
+        ? "SmartQueue.exe"
+        : "SmartQueue";
+
 const cppProgram = path.join(
     __dirname,
     "cpp",
-    "SmartQueue.exe"
+    executableName
 );
 
 function runQueueEngine({
@@ -38,9 +43,7 @@ function runQueueEngine({
         ];
 
         for (const customer of customers) {
-
             const token = `A${String(customer.token_number).padStart(3, "0")}`;
-
             const name = String(customer.customer_name);
             const status = String(customer.status);
 
@@ -50,9 +53,7 @@ function runQueueEngine({
                 );
             }
 
-            values.push(
-                `${token}\t${name}\t${status}`
-            );
+            values.push(`${token}\t${name}\t${status}`);
         }
 
         const input = values.join("\n") + "\n";
@@ -75,12 +76,9 @@ function runQueueEngine({
             errors += data;
         });
 
-        child.on("error", error => {
-            reject(error);
-        });
+        child.on("error", error => reject(error));
 
         child.on("close", code => {
-
             if (code !== 0) {
                 return reject(
                     new Error(errors || `C++ process exited with code ${code}`)
@@ -97,7 +95,6 @@ function runQueueEngine({
             const lines = output.trim().split(/\r?\n/);
 
             for (const line of lines) {
-
                 const parts = line.split("\t");
 
                 if (parts[0] === "RESULT") {
@@ -120,10 +117,7 @@ function runQueueEngine({
             resolve(result);
         });
 
-        child.stdin.on("error", error => {
-            reject(error);
-        });
-
+        child.stdin.on("error", error => reject(error));
         child.stdin.end(input);
     });
 }

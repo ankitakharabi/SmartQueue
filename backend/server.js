@@ -8,6 +8,9 @@ const runQueueEngine = require("./cppBridge");
 require("dotenv").config();
 
 const app = express();
+if (process.env.NODE_ENV === "production") {
+    app.set("trust proxy", 1);
+}
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
@@ -21,7 +24,7 @@ app.use(session({
     cookie: {
         httpOnly: true,
         sameSite: "lax",
-        secure: false,
+      secure: process.env.NODE_ENV === "production",
         maxAge: 24 * 60 * 60 * 1000
     }
 }));
